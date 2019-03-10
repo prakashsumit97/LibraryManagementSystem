@@ -1,0 +1,48 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form role="form" name="transactionForm">
+
+                    <div class="form-group">
+                        <label>User</label>
+                       
+                        <select class="form-control" ng-model="transaction.user" name="user" ng-required="true"chosen single
+                                ng-options="info._id as info.userName for info in users">
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Book</label>
+                        <select class="form-control" ng-model="transaction.book" name="user" ng-required="true"chosen single
+                                ng-options="info._id as info.name for info in books">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Issue Date</label>
+                        <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy"
+                               name="issueDate" ng-model="transaction.issueDate"
+                               is-open="isOpenIssue" ng-required="true"  datepicker-options="issueOptions" ng-focus="isOpenIssue=true;isOpenDue=false" close-text="Close"
+                               popup-placement="bottom-right" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy"
+                               name="dueDate" ng-model="transaction.dueDate"
+                               is-open="isOpenDue" min-date="transaction.issueDate"   ng-required="true"ng-focus="isOpenDue=true;isOpenIssue=false" close-text="Close"
+                               popup-placement="bottom-right" required>
+                    </div>
+
+                    <div style="margin-top: 20px">
+                        <button class="btn btn-primary pull-right m-t-n-xs"ng-click="transactionSave(transaction)"
+                                ng-disabled="!transactionForm.$dirty || transactionForm.$invalid"><strong>Save</strong></button>
+                        <button class="btn btn-danger pull-left m-t-n-xs" ui-sref="menu.transactions"><strong>Cancle</strong></button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form role="form" name="bookForm">
+
+                    <div class="form-group" ng-class="{'has-error':(bookForm.name.$dirty && bookForm.name.$invalid) || (error.name)}">
+                        <label>Name</label>
+                        <input type="text" class="form-control" ng-model="book.name" name="name" ng-required="true">
+                    </div>
+
+                    <div class="form-group" ng-class="{'has-error':(bookForm.author.$dirty && bookForm.author.$invalid) || (error.author)}">
+                        <label>Author</label>
+                        <input type="text" class="form-control" ng-model="book.author" name="author" ng-required="true">
+                    </div>
+
+                    <div style="margin-top: 20px">
+                        <button ng-click="forDemo()"></button>
+                        <button ng-if="!editFlag" class="btn btn-primary pull-right m-t-n-xs" ng-click="bookSave(book)" ng-disabled="!bookForm.$dirty || bookForm.$invalid"><strong>Save</strong></button>
+                        <button ng-if="editFlag" class="btn btn-primary pull-right m-t-n-xs" ng-click="bookUpdate(book)" ng-disabled="!bookForm.$dirty || bookForm.$invalid"><strong>Update</strong></button>
+                        <button class="btn btn-danger pull-left m-t-n-xs" ui-sref="menu.books"><strong>Cancle</strong></button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

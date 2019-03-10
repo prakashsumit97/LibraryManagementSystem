@@ -1,0 +1,39 @@
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div>
+                <button class="btn btn-primary" ui-sref="menu.transaction">Add</button>
+            </div>
+            <table  object-table
+                    data = "transactions"
+                    display = "10"
+                    headers = "UserName,email,Book Name,Author,Issue Date,Due Date,Status,Action"
+                    fields = "userName,email,name,author,issueDate,dueDate,status"
+                    sorting = "compound"
+                    editable = "false"
+                    resize="false"
+                    drag-columns="false">
+                <tbody>
+                <tr>
+                    <td>{{item.user.userName}}</td>
+                    <td>{{item.user.email}}</td>
+                    <td>{{item.book.name}}</td>
+                    <td>{{item.book.author}}</td>
+                    <td>{{item.issueDate | date:'dd-MM-yyyy'}}</td>
+                    <td>{{item.dueDate | date:'dd-MM-yyyy'}}</td>
+                    <td >
+                        <!--<span ng-if="item.status=='BORROW'" class="label label-info">-->
+						{{item.status}}
+					<!--</span>-->
+                    </td>
+                        
+                    <td><button class="btn btn-sm btn-primary" ng-click="$owner.changeStatus(item)">Return</button></td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+

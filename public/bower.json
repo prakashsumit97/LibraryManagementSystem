@@ -1,0 +1,13 @@
+{
+  "name": "library",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-bootstrap": "~1.2.0",
+    "angular-resource": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap-datetimepicker": "~0.3.15",
+    "bootstrap": "~3.1.1",
+    "angular-object-table": "^0.2.2",
+    "angular-chosen-localytics": "^1.5.0"
+  }
+}

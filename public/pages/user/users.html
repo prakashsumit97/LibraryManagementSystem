@@ -1,0 +1,41 @@
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div>
+                <button class="btn btn-primary" ui-sref="menu.user">Add</button>
+                <label><input type="radio" name="role" ng-model="ctrlObj.role" ng-change="roleChange()" value="ADMIN"> Admin</label>
+                <label><input type="radio" name="role" ng-model="ctrlObj.role" ng-change="roleChange()" value="NORMAL"> Normal</label>
+            </div>
+            <table  object-table
+                    data = "users"
+                    display = "10"
+                    headers = "UserName, Name ,Email, Mobile,Role,Status,Action"
+                    fields = "userName,name,email,mobileNumber,role,active"
+                    sorting = "compound"
+                    editable = "false"
+                    resize="false"
+                    drag-columns="false">
+                <tbody>
+                <tr>
+                    <td>{{item.userName}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.mobileNumber}}</td>
+                    <td>{{item.role}}</td>
+<td>
+    <span ng-show="item.active"><p>Active</p></span>
+    <span ng-show="!item.active"><p>InActive</p></span>
+</td>
+                    <td>
+                        <button ng-show="item.active" class="btn btn-sm btn-primary" ng-click="$owner.editUser(item)">Edit</button>
+                        <button ng-show="!item.active" class="btn btn-sm btn-success" ng-click="$owner.changeStatus(item,'active')">Active</button>
+                        <button ng-show="item.active" class="btn btn-sm btn-danger" ng-click="$owner.changeStatus(item,'inactive')">InActive</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

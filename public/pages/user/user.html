@@ -1,0 +1,53 @@
+<div class="section">
+    <div class="container">
+        <div class="row">
+<div class="col-md-offset-3 col-md-6">
+            <form role="form" name="userForm">
+
+                <div class="form-group" ng-class="{'has-error':(userForm.name.$dirty && userForm.name.$invalid) || (error.name)}">
+                    <label>Name</label>
+                    <input type="text" class="form-control" ng-model="user.name" name="name" ng-required="true">
+                </div>
+
+                <div class="form-group" ng-class="{'has-error':(userForm.userName.$dirty && userForm.userName.$invalid) || (error.userName)}">
+                    <label>User Name</label>
+                    <input type="text" class="form-control" ng-model="user.userName" name="userName" ng-required="true">
+                </div>
+
+                <div class="form-group" ng-class="{'has-error':(userForm.email.$dirty && userForm.email.$invalid) || (error.email)}">
+                    <label>Email</label>
+                    <input type="email" ng-disabled="editFlag" class="form-control" ng-model="user.email" name="email" ng-required="true">
+                    <p ng-show="userForm.email.$dirty && userForm.email.$invalid" class="help-block"><span ng-show="userForm.email.$error.email">Enter valid Email</span></p>
+                    <p ng-show="error.email" class="help-block">{{error.email}}</p>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error':(userForm.mobileNumber.$dirty && userForm.mobileNumber.$invalid) || (error.mobileNumber)}">
+                    <label>Mobile Number</label>
+                    <input type="text" class="form-control" ng-model="user.mobileNumber" name="mobileNumber" ng-required="true" ng-pattern="/^[0-9]{10}$/">
+                    <p ng-show="userForm.mobileNumber.$dirty && userForm.mobileNumber.$invalid" class="help-block">Enter valid Mobile Number</p>
+                    <p ng-show="error.mobileNumber" class="help-block">{{error.mobileNumber}}</p>
+                </div>
+
+                <div>
+                    <label>Role</label>
+                    <div>
+                        <label><input type="radio" name="role" ng-model="user.role" value="ADMIN"> Admin</label>
+                        <label><input type="radio" name="role" ng-model="user.role" value="NORMAL"> Normal</label>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px">
+                    <button ng-if="!editFlag" class="btn btn-primary pull-right m-t-n-xs"ng-click="userSave(user)"
+                            ng-disabled="!userForm.$dirty || userForm.$invalid"><strong>Save</strong></button>
+                    <button  ng-if="editFlag" class="btn btn-primary pull-right m-t-n-xs"ng-click="userUpdate(user)"
+                            ng-disabled="!userForm.$dirty || userForm.$invalid"><strong>Update</strong></button>
+                    <button class="btn btn-danger pull-left m-t-n-xs" ui-sref="menu.users"><strong>Cancle</strong></button>
+                </div>
+
+            </form>
+</div>
+            
+        </div>
+    </div>
+</div>
+

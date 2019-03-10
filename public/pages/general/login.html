@@ -1,0 +1,49 @@
+
+<div class="">
+    <div class="col-md-5 col-md-offset-3 login-left-margin" style="margin-top: 7%;">
+        <div class="panel panel-default" style="border: 5px solid rgba(0, 0, 0, 0.11);">
+            <div class="panel-body" style="padding: 30px">
+                <div class="panel panel-default animated bounceIn" style="margin-bottom: 0px;">
+                    <div class="panel-body" style="padding: 0px;">
+
+                        <div style="padding: 30px 0px; text-align: center">
+                            <h4>LIBRARY MANAGEMENT SYSTEM</h4>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+
+                                <form class="form-horizontal"role="form" name="loginForm">
+
+                                    <div class="form-group" ng-class="{'has-error': loginForm.emailID.$pristine && error}">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">&nbsp;<i class="fa fa-user"></i></span>
+                                            <input type="email" class="form-control" name="emailID" ng-model="user.email" placeholder="Email" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{'has-error': loginForm.password.$pristine && error}">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                            <input type="password" class="form-control" name="password" ng-model="user.password" placeholder="Password" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-if="error">
+                                        <div class="alert alert-danger animated shake" style="margin-bottom: 0px;padding: 8px;text-align: center;">Invalid email Id and password.</div>
+                                    </div>
+
+                                    
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-block btn-primary" ng-disabled="loginForm.$invalid" ng-click="login(user)">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

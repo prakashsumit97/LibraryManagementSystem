@@ -10,7 +10,7 @@ var crypto = require("crypto");
 var key = "supersecretkey";
 
 exports.authenticate = function(req, res) { // Authenticate User.
-
+    console.log('password', encrypt(key, req.body.password));
     User.findOne({ email: new RegExp('^' + req.body.email + '$', 'i'), password: encrypt(key, req.body.password), active: true }, function(err, user) {
         if (err) {
             res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ error: 'unexpected error accessing data' });

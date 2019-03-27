@@ -66,17 +66,17 @@ var decryptInformation = function(KEY, encryptedText) {
 // }
 
 // // function to decryt data..............
-// var decryptInformation = function(KEY, encryptedText) {
-//     const decipher = crypto.createDecipher('aes192', KEY)
-//     var decrypted = decipher.update(encryptedText, 'hex', 'utf8')
-//     decrypted += decipher.final('utf8');
-//     console.log(decrypted);
-//     return decrypted;
-// }
+var decryptInformation = function(KEY, encryptedText = '983226bcf59406ac89d5d63fe8e010bb') {
+    const decipher = crypto.createDecipher('aes192', KEY)
+    var decrypted = decipher.update(encryptedText, 'hex', 'utf8')
+    decrypted += decipher.final('utf8');
+    console.log(decrypted);
+    return decrypted;
+}
 
 // encryptInformation("sumitPrakash", "incred api key")
 
-// decryptInformation("sumitPrakash", "836d1a4a65314b621af085e81f9957c7");
+decryptInformation("supersecretkey", "983226bcf59406ac89d5d63fe8e010bb");
 
 // // Nodejs encryption with CTR
 // const algorithm = 'aes-256-cbc';

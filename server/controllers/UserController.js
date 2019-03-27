@@ -163,7 +163,7 @@ function generatePassword() {
 }
 
 function encrypt(key, data) {
-    var cipher = crypto.createCipher('aes-256-cbc', key);
+    var cipher = crypto.createCipher('aes192', key);
     var crypted = cipher.update(data, 'utf-8', 'hex');
     crypted += cipher.final('hex');
 

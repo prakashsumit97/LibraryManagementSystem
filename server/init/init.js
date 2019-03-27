@@ -47,17 +47,6 @@ function encrypt(key, data) {
     return crypted;
 }
 
-
-
-// function to encrypt data ....
-var encryptInformation = function(KEY, normalText) {
-    const cipher = crypto.createCipher('aes192', KEY);
-    var encrypted = cipher.update(normalText, 'utf8', 'hex');
-    encrypted += cipher.final('hex');
-    console.log(encrypted);
-    return encrypted;
-}
-
 // function to decryt data..............
 var decryptInformation = function(KEY, encryptedText) {
     const decipher = crypto.createDecipher('aes192', KEY)
@@ -67,34 +56,52 @@ var decryptInformation = function(KEY, encryptedText) {
     return decrypted;
 }
 
-encryptInformation("sumitPrakash", "incred api key")
+// // function to encrypt data ....
+// var encryptInformation = function(KEY, normalText) {
+//     const cipher = crypto.createCipher('aes192', KEY);
+//     var encrypted = cipher.update(normalText, 'utf8', 'hex');
+//     encrypted += cipher.final('hex');
+//     console.log(encrypted);
+//     return encrypted;
+// }
 
-decryptInformation("sumitPrakash", "836d1a4a65314b621af085e81f9957c7");
+// // function to decryt data..............
+// var decryptInformation = function(KEY, encryptedText) {
+//     const decipher = crypto.createDecipher('aes192', KEY)
+//     var decrypted = decipher.update(encryptedText, 'hex', 'utf8')
+//     decrypted += decipher.final('utf8');
+//     console.log(decrypted);
+//     return decrypted;
+// }
 
-// Nodejs encryption with CTR
-const algorithm = 'aes-256-cbc';
-const keyy = crypto.randomBytes(32);
-const iv = crypto.randomBytes(16);
+// encryptInformation("sumitPrakash", "incred api key")
 
-function encrypt(text) {
-    console.log('key', iv);
-    let cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(keyy), iv);
-    let encrypted = cipher.update(text);
-    encrypted = Buffer.concat([encrypted, cipher.final()]);
-    console.log('encrypted', encrypted.toString('hex'));
-    return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
-}
+// decryptInformation("sumitPrakash", "836d1a4a65314b621af085e81f9957c7");
 
-function decrypt(text) {
-    console.log('key', text.iv);
-    let iv = Buffer.from(text.iv, 'hex');
-    let encryptedText = Buffer.from(text.encryptedData, 'hex');
-    let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(keyy), iv);
-    let decrypted = decipher.update(encryptedText);
-    decrypted = Buffer.concat([decrypted, decipher.final()]);
-    return decrypted.toString();
-}
+// // Nodejs encryption with CTR
+// const algorithm = 'aes-256-cbc';
+// const keyy = crypto.randomBytes(32);
+// const iv = crypto.randomBytes(16);
 
-var hw = encrypt("Some serious stuff")
-console.log(hw)
-console.log(decrypt(hw))
+// function encrypt(text) {
+//     console.log('key', iv);
+//     let cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(keyy), iv);
+//     let encrypted = cipher.update(text);
+//     encrypted = Buffer.concat([encrypted, cipher.final()]);
+//     console.log('encrypted', encrypted.toString('hex'));
+//     return { iv: iv.toString('hex'), encryptedData: encrypted.toString('hex') };
+// }
+
+// function decrypt(text) {
+//     console.log('key', text.iv);
+//     let iv = Buffer.from(text.iv, 'hex');
+//     let encryptedText = Buffer.from(text.encryptedData, 'hex');
+//     let decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(keyy), iv);
+//     let decrypted = decipher.update(encryptedText);
+//     decrypted = Buffer.concat([decrypted, decipher.final()]);
+//     return decrypted.toString();
+// }
+
+// var hw = encrypt("Some serious stuff")
+// console.log(hw)
+// console.log(decrypt(hw))

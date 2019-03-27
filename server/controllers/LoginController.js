@@ -54,7 +54,7 @@ exports.getLoggedInUser = function(req, res) { // Get Logged in user details.
 };
 
 function encrypt(key, data) {
-    var cipher = crypto.createCipher('aes-256-cbc', key);
+    var cipher = crypto.createCipher('aes192', key);
     var crypted = cipher.update(data, 'utf-8', 'hex');
     crypted += cipher.final('hex');
     //decrypt("e07e4ec7e7781e7f700a95d8b6372b7d", key);
@@ -62,7 +62,7 @@ function encrypt(key, data) {
 }
 
 function decrypt(text, key) {
-    var decipher = crypto.createDecipher('aes-256-cbc', key)
+    var decipher = crypto.createDecipher('aes192', key)
     var dec = decipher.update(text, 'hex', 'utf8')
     dec += decipher.final('utf8');
     return dec;
